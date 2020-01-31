@@ -1,0 +1,132 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+body{
+    margin-top: 10px;
+}
+tr{
+    background-color: rgb(51, 51, 51);
+}
+td {
+    color: #FFFFFF;
+    padding: 5px;
+   }
+#mainBox{
+    background-color: rgb(172, 172, 172);
+    width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+#headerBox{
+    width: 800px;
+    height: 80px;
+    background-color: #555454;
+}
+#titleText{
+    font-size: 80px;
+    padding-left: 480px;
+    color: #FFFFFF;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+#addBox{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    flex: 2 200px;
+    align-items: center;
+    justify-content: space-around;
+    margin-top: 10px;
+    margin-left: 10px;
+    background-color: #555454;
+    width: 780px;
+    height: 50px;
+}
+#addBox_text{
+    color: #FFFFFF;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 30px;
+}
+#addBox_input input{
+    border:1px solid #aaa;
+    box-shadow: 0px 0px 3px #ccc, 0 10px 15px #eee inset;
+    border-radius:2px;
+    width: 200px;
+}
+#addBox_But{
+    width: 50px;
+    height: 25px;
+    border: 1px solid #5a5a5a;
+}
+#addBox_But:hover{
+    opacity:.85;
+    cursor: pointer;
+}
+#table{
+    width: 785px;
+    margin-left: auto;
+    margin-right: auto; 
+    border: 1px solid rgb(172, 172, 172);   
+}
+.tdTask{
+    width: 500px;
+}
+.tdDeadline{
+    width: 205px;
+}
+.tdDone{
+    width: 50px;
+}
+.butDone{
+    margin-top: -2px;
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    visibility: visible;
+}
+.butDone:hover{
+    opacity:.85;
+    cursor: pointer;
+}
+.butNotDone{
+    font-size: 25px;
+    margin-top: -2px;
+    position: absolute;
+    color: red;
+    visibility: hidden;
+}
+.butNotDone:hover{
+    opacity:.85;
+    cursor: pointer;
+}
+.butDelete{
+    margin-top: -3px;
+    margin-left: 28px;
+    position: absolute;
+    width: 20px;
+    height: 25px;
+}
+.butDelete:hover{
+    opacity:.85;
+    cursor: pointer;
+}
+.greenBG{
+    background-color: rgb(1, 206, 11);
+}
+

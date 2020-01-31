@@ -1,0 +1,44 @@
+<!Doctype html>
+<html lang="en">
+  <head>
+    <title>Homwork-5</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css">
+  </head>
+  <body>
+  <div id="mainBox">
+
+    <div id="headerBox">
+        <div id="titleText">
+        ToDoList
+        </div>
+    </div>
+    <div id="addBox">
+        <div id="addBox_text">
+            Add a new task
+        </div>
+        <div id="addBox_input">
+            <input type="text" name="website" placeholder="What else need to be done?" id="task"> 
+        </div>
+        <div>
+            <select onchange="filter.filterToDoList()" id="filter">
+                <option value="#">Deadline</option>
+                <option value="week">Week</option>
+                <option value="day">Day</option>
+                <option value="Done">Done</option>
+                <option value="NotDone">NotDone</option>
+               </select>
+        </div>
+        <div>
+            <input type="date" value="setdate" id="addBox_Date">
+        </div>
+        <div>
+            <input type="submit" value="ADD" id="addBox_But" onclick="toDoList.addTask()">
+        </div>
+    </div>
+    <table id="table">
+    </table>
+  </div>
+    <script src="script/script.js"></script>
+  </body>
+</html>
