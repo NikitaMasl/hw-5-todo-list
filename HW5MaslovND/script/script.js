@@ -37,11 +37,12 @@ var toDoList = (function(){
         localStorage.setItem('tr'+(key+1)+'doneOrNot', doneOrNot);
     },
     deleteTask:function (key){
+        console.log(key);
         var tr = document.getElementById("tr"+key);
         document.getElementById("table").removeChild(tr);
-        localStorage.removeItem('tr'+table.rows.length+'task');
-        localStorage.removeItem('tr'+table.rows.length+'date');
-        localStorage.removeItem('tr'+table.rows.length+'doneOrNot');
+        localStorage.removeItem('tr'+(key+1)+'task');
+        localStorage.removeItem('tr'+(key+1)+'date');
+        localStorage.removeItem('tr'+(key+1)+'doneOrNot');
 
     },
     butNotDone:function (key){
@@ -57,11 +58,7 @@ var toDoList = (function(){
 }());
 var fooOnload = (function(){
     return{
-        getFromLS:function(key){
-        var task = localStorage.getItem('tr'+(key+1)+'task');
-        var date = localStorage.getItem('tr'+(key+1)+'date');
-        var doneOrNot = localStorage.getItem('tr'+(key+1)+'doneOrNot');
-
+        getFromLS:function(task, date, doneOrNot){
         var table = document.getElementById("table");
         var tr = document.createElement('tr');
         tr.setAttribute('id', 'tr'+table.rows.length)
@@ -73,7 +70,7 @@ var fooOnload = (function(){
         tdDone.setAttribute('class', 'tdDone');
         tdTask.innerHTML = task;
         tdDeadline.innerHTML = "DeadLine: " + date;
-        tr.setAttribute('date', document.getElementById("addBox_Date").value);
+        tr.setAttribute('date', date);
         tr.setAttribute('done', doneOrNot);
         tdDone.innerHTML = '<a href="#" onclick="toDoList.doneTask('+table.rows.length+')"><img src="./img/done.png" class = "butDone" id="btD'+table.rows.length+'"/></a><a href="#" onclick="toDoList.butNotDone('+table.rows.length+')"><i class="fas fa-times-circle butNotDone" id = "btC'+table.rows.length+'"></i></a><a href="#" onclick="toDoList.deleteTask('+table.rows.length+')"><img src="./img/delete.png" class = "butDelete"/></a>';
         tr.appendChild(tdTask);
@@ -82,15 +79,18 @@ var fooOnload = (function(){
         table.appendChild(tr);
         if(doneOrNot!=0){
             tr.setAttribute('class', 'greenBG');
-            document.getElementById("btD"+key).style.visibility = 'hidden';
-            document.getElementById("btC"+key).style.visibility = 'visible';
+            document.getElementById("btD"+(table.rows.length-1)).style.visibility = 'hidden';
+            document.getElementById("btC"+(table.rows.length-1)).style.visibility = 'visible';
         }
         }
     }
 }());
 window.onload = function(){
     for(var i = 0; i<(localStorage.length/3); i++){
-        fooOnload.getFromLS(i);
+            var task = localStorage.getItem('tr'+(i+1)+'task');
+            var date = localStorage.getItem('tr'+(i+1)+'date');
+            var doneOrNot = localStorage.getItem('tr'+(i+1)+'doneOrNot');
+       fooOnload.getFromLS(task, date, doneOrNot);
     }
 }
 Date.prototype.toDateInputValue = (function() {
